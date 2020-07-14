@@ -1,45 +1,56 @@
 herolist = {
-    '1':{'p1':'a',
-         'p2':'b'
-         },
-    '2':{'p1':'c',
-         'p2':'d'
-         },
-    '3':{'p1':'e',
-         'p2':'a'
-         },
-    '4':{'p1':'b',
-         'p2':'d'
-         },
-    '5':{'p1':'e',
-         'p2':'c'
-         },
-    '6':{'p1':'b',
-         'p2':'d'
-         },
-    '7':{'p1':'b'
-         }
+    '1': {'star':1,
+          'p1': 'a',
+          'p2': 'b'
+          },
+    '2': {'star':1,
+          'p1': 'c',
+          'p2': 'd'
+          },
+    '3': {'star':2,
+          'p1': 'a',
+          'p2': 'd'
+          },
+    '4': {'star':3,
+          'p1': 'b',
+          'p2': 'e'
+          },
+    '5': {'star':4,
+          'p1': 'c',
+          'p2': 'd',
+          'p3': 'a'
+          }
 }
 
-jiban={'a':0,'b':0,'c':0,'d':0,'e':0}
+# jiban = {'a': 0, 'b': 0, 'c': 0, 'd': 0, 'e': 0}
+nlist = ['a','b','c','d','e']   #测试用 羁绊列表
 
-def addp(xp):
-    jiban[xp] += 1
-    return
+##################################
+#需要将羁绊统一归零
+def clear(n):
+    fnow = {}
+    for i in range(len(n)):
+        fnow[n[i]] = 0
+        i += 1
+    return fnow
 
-# addp('a')
-# addp('a')
-# addp('a')
-# print(jiban['a'])
+jiban = clear(nlist)
+##################################
+##################################
 
-
-
-
-
+#输入数字
 n = int(input("Hero number: ").strip())
+
+#遍历所有英雄
 for i in range(n):
-    x = input("Hero{} name: ".format((str(i+1))))
-    pn = len(herolist[x])    #p number
+    x = input("Hero{} name: ".format(str(i + 1)))     #输入英雄名称
+
+    #将英雄身上所有羁绊记录
+    def addp(xp):
+        jiban[xp] += 1
+        return
+    #pn 羁绊数(三项属性-第一项)
+    pn = len(herolist[x]) - 1
     for o in range(pn):
         p = 'p' + str(o + 1)
         addp(herolist[x][p])
@@ -48,30 +59,11 @@ for i in range(n):
 
 
 
-print(jiban)
-
-# while jiban[x] == 0
-
-for i in ['a','b','c','d','e']:
+#检索剔除羁绊数为0
+for i in nlist:
     if jiban[i] == 0:
         del jiban[i]
-
-
+##################################
 print(jiban)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-#     print("For now: {},{}".format(ap1,ap2))
-#     i += 1
