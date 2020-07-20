@@ -99,18 +99,18 @@ for i in jiban.keys():
 
 print("查找羁绊:", jiban.keys())
 
-#剔除拥有的英雄
-for i in needhero:
-    if i in nowhero:
-        needhero.remove(i)
+# #剔除拥有的英雄
+# for i in needhero:
+#     if i in nowhero:
+#         needhero.remove(i)
 
 
 print("Need hero name: ",needhero)
-
-b = []
+print("Now hero: ",nowhero)
+herostar = []
 for i in needhero:
-    b.append(herolist[i]['star'])
-print("Hero's Star: ",b)
+    herostar.append(herolist[i]['star'])
+print("Hero's Star: ",herostar)
 
 
 
