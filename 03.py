@@ -13,7 +13,7 @@ def clear(n):
 
 jiban = clear(nlist)
 ##################################
-##################################
+
 
 ##############
 #输入数字
@@ -35,7 +35,6 @@ for i in range(n):
         addp(herolist[x][p])
 
 
-
 #检索剔除羁绊数为0
 for i in nlist:
     if jiban[i] == 0:
@@ -45,7 +44,6 @@ print(jiban)
 
 for i in jiban:
     print("羁绊\"{}\":{}".format(i,jiban[i]))
-
 
 
 def closenum(jiban,combonum):    
@@ -69,10 +67,7 @@ def closenum(jiban,combonum):
         f.extend([min(x)])              
 #         print(x,lev) 
 
-    return f,weig 
-        
-
-
+    return f,weig
 
 www = closenum(jiban,combonum)
 print("还差羁绊{}，当前羁绊等级{}".format(www[0],www[1]))
@@ -93,24 +88,24 @@ needhero = []
 for i in jiban.keys():
     needhero.extend(findHeroPro(herolist,i))
 
-# x = "斗士"
-# needhero = findHeroPro(herolist,x)
+print("查找羁绊:", list(jiban.keys()))
 
 
-print("查找羁绊:", jiban.keys())
-
-# #剔除拥有的英雄
-# for i in needhero:
-#     if i in nowhero:
-#         needhero.remove(i)
-
+needheroweigh = {}
+for i in needhero:
+    needherotime = needhero.count(i)
+    needheroweigh[i] = needherotime
+print(needheroweigh)
+needhero =list(needheroweigh.keys())
 
 print("Need hero name: ",needhero)
+print('权重: ',needheroweigh)
+
 print("Now hero: ",nowhero)
 herostar = []
 for i in needhero:
     herostar.append(herolist[i]['star'])
-print("Hero's Star: ",herostar)
+print("Need hero's Star: ",herostar)
 
 
 
